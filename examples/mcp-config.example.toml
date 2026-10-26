@@ -1,0 +1,8 @@
+# Synthetic client configuration example only. No server is installed or called.
+[mcp_servers.example_read_only]
+enabled = false
+command = "python3"
+args = ["-m", "replace_with_your_mcp_package"]
+
+# Supply real commands, endpoints, or credentials only in a private local
+# client configuration after reviewing the provider's documentation.

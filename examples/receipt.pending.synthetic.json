@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "task_id": "demo-task-001",
+  "executor": {"id": "example-executor", "route": "local_fixture_reader"},
+  "reported_status": "completed",
+  "actions_reported": ["Read fixture names from the synthetic task description."],
+  "changes": [],
+  "evidence": [
+    {"kind": "text", "reference": "synthetic-receipt", "establishes": "The executor reported two fixture names."}
+  ],
+  "limitations": ["This report is synthetic and has not been independently checked."],
+  "independent_acceptance": {
+    "status": "pending",
+    "accepted_by": null,
+    "checks": [
+      {"id": "names-listed", "result": "not_run", "evidence": []},
+      {"id": "scope-respected", "result": "not_run", "evidence": []}
+    ]
+  }
+}

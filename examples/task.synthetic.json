@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "task_id": "demo-task-001",
+  "title": "Synthetic fixture inspection",
+  "objective": "Read the two synthetic fixture files and report their names.",
+  "target": {
+    "kind": "fixture_workspace",
+    "id": "demo-workspace",
+    "allowed_paths": ["examples/fixture/"]
+  },
+  "control": {
+    "primary_role": "primary-agent",
+    "executor_role": "example-executor",
+    "single_writer": "example-executor"
+  },
+  "interfaces": [
+    {"kind": "local_fixture_reader", "name": "example-read-only", "verified_for_task": true}
+  ],
+  "allowed_actions": ["read_fixture_names", "return_summary"],
+  "prohibited_actions": ["network", "credential_access", "file_write", "external_message"],
+  "acceptance_criteria": [
+    {"id": "names-listed", "description": "Both fixture names appear in the receipt."},
+    {"id": "scope-respected", "description": "No path outside examples/fixture/ was read or written."}
+  ],
+  "stop_conditions": ["A fixture is missing", "The requested interface is unavailable"],
+  "max_attempts": 1
+}
